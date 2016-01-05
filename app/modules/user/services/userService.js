@@ -7,6 +7,23 @@ angular.module("modules.user.services", [])
 
 			//call login API
 			services.login = function (user) {
-				return $objShortcutData;
+				var postData = {
+					"data": user
+				};
+				$http({
+					headers: {
+						"Content-Type": "application/json"
+					},
+					method: "POST",
+					dataType: "json",
+					url: Config.url + "users/login",
+					data: postData
+				}).then(function successCallback(response) {
+					console.log(response);
+				}, function errorCallback(response) {
+					console.log(response);
+				});
 			};
+
+			return services;
 		});

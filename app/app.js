@@ -3,8 +3,16 @@
  */
 angular.module('officialChromeApp', [
 	'modules.user.controllers',
+	'modules.user.services',
 	'ngRoute'
-]).
+], function ($provide) {
+	// Prevent Angular from sniffing for the history API
+	// since it's not supported in packaged apps.
+	$provide.decorator('$window', function ($delegate) {
+		$delegate.history = null;
+		return $delegate;
+	});
+}).
 constant("Config", {
 	"url": "http://localhost/api-official/api/"
 }).
@@ -26,6 +34,6 @@ config(['$routeProvider', '$locationProvider', function ($routeProvider, $locati
 }]).
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-		$rootScope.extraCss = current.$$route.extraCss;
+		//$rootScope.extraCss = current.$$route.extraCss;
 	})
 }]);
