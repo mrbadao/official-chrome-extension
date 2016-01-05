@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="officialChromeApp">
+<head>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-route/angular-route.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/modules/user/controllers/userCtrl.js"></script>
+
+	<link rel="stylesheet" ng-repeat="css in extraCss" href="{{css}}"/>
+</head>
+<body>
+<ng-view></ng-view>
+</body>
+</html>

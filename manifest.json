@@ -1,0 +1,17 @@
+{
+  "app": {
+    "background": {
+      "scripts": [
+        "extensions/js/background.js"
+      ]
+    }
+  },
+  "name": "Officical CMS Chrome App",
+  "version": "0.1",
+  "description": "Officical CMS Chrome App",
+  "manifest_version": 2,
+  "icons": {
+    "16": "resources/img/app_ico_16.png",
+    "128": "resources/img/app_ico_128.png"
+  }
+}
