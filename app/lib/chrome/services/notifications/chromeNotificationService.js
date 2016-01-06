@@ -18,6 +18,9 @@ angular.module("lib.chrome.services.notifications", [])
 
 						}
 				);
+				chrome.notifications.onClicked.addListener(function () {
+					chrome.app.window.current().focus();
+				});
 			};
 			return service;
 		});

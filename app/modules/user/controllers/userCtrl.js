@@ -11,7 +11,7 @@ angular.module("modules.user.controllers", [])
 			//model
 			$scope.user = {username: '', password: ''};
 			$scope.loginResultData = {};
-			chromeNotificationService.pushPotifications('hello', Config.appIco.ico_128, 'Hello word');
+			chromeNotificationService.pushPotifications("123", "basic", 'hello', Config.appIco.ico_128, 'Hello word');
 			//form submit
 			$scope.loginFormSubmit = function () {
 				var promiseLoginRequest = userService.loginRequest($scope.user);
