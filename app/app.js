@@ -5,6 +5,7 @@ angular.module('officialChromeApp', [
 	'modules.user.controllers',
 	'modules.user.services',
 	'angular.css.injector',
+	'lib.chrome.services',
 	'ngRoute',
 	'ngMessages'
 ], function ($provide) {
@@ -17,6 +18,10 @@ angular.module('officialChromeApp', [
 }).
 constant("Config", {
 	"url": "http://localhost/api-official/api/",
+	getStogareKey: function (strKey) {
+		var _stogareKey = officialChromeApp;
+		return _stogareKey + "." + strKey;
+	},
 	modules: {
 		login: {
 			cssFiles: [
@@ -49,5 +54,6 @@ config([
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 		//$rootScope.extraCss = current.$$route.extraCss;
+		//storage
 	})
 }]);

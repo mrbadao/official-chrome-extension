@@ -2,7 +2,7 @@
  * Created by hieunc on 05/01/2016.
  */
 angular.module("modules.user.controllers", [])
-		.controller("userCtrl", function ($scope, Config, cssInjector, userService) {
+		.controller("userCtrl", function ($scope, Config, cssInjector, userService, chromeStorageSyncService) {
 			//inject css
 			angular.forEach(Config.modules.login.cssFiles, function (css, idx) {
 				cssInjector.add(css);
@@ -11,7 +11,6 @@ angular.module("modules.user.controllers", [])
 			//model
 			$scope.user = {username: '', password: ''};
 			$scope.loginResultData = {};
-
 
 			//form submit
 			$scope.loginFormSubmit = function () {
@@ -22,6 +21,7 @@ angular.module("modules.user.controllers", [])
 						switch ($scope.loginResultData.status) {
 							case 200:
 								$scope.loginForm.$setValidity("loginFailed", true);
+								chromeStorageSyncService.set({"Auth.User": $scope.loginResultData.data}, null);
 								//TODO redirect here
 								break;
 							default:
