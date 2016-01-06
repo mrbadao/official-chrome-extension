@@ -16,7 +16,7 @@
 	},
 	"permissions": [
 		"storage",
-
+		"notifications",
 		// Api server
 		"http://localhost/"
 	]

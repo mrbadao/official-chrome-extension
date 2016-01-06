@@ -2,7 +2,7 @@
  * Created by hieunc on 05/01/2016.
  */
 angular.module("modules.user.controllers", [])
-		.controller("userCtrl", function ($scope, Config, cssInjector, userService, chromeStorageSyncService) {
+		.controller("userCtrl", function ($scope, Config, cssInjector, userService, chromeStorageSyncService, chromeNotificationService) {
 			//inject css
 			angular.forEach(Config.modules.login.cssFiles, function (css, idx) {
 				cssInjector.add(css);
@@ -11,7 +11,7 @@ angular.module("modules.user.controllers", [])
 			//model
 			$scope.user = {username: '', password: ''};
 			$scope.loginResultData = {};
-
+			chromeNotificationService.pushPotifications('hello', Config.appIco.ico_128, 'Hello word');
 			//form submit
 			$scope.loginFormSubmit = function () {
 				var promiseLoginRequest = userService.loginRequest($scope.user);

@@ -5,7 +5,8 @@ angular.module('officialChromeApp', [
 	'modules.user.controllers',
 	'modules.user.services',
 	'angular.css.injector',
-	'lib.chrome.services',
+	'lib.chrome.services.notifications',
+	'lib.chrome.services.storage',
 	'ngRoute',
 	'ngMessages'
 ], function ($provide) {
@@ -18,9 +19,9 @@ angular.module('officialChromeApp', [
 }).
 constant("Config", {
 	"url": "http://localhost/api-official/api/",
-	getStogareKey: function (strKey) {
-		var _stogareKey = officialChromeApp;
-		return _stogareKey + "." + strKey;
+	"appIco": {
+		"ico_128": "resources/img/app_icon_128.png",
+		"ico_16": "resources/img/app_icon_16.png"
 	},
 	modules: {
 		login: {
