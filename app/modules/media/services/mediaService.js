@@ -1,23 +1,20 @@
 /**
  * Created by hieunc on 05/01/2016.
  */
-angular.module("modules.user.services", [])
-		.factory("userService", function ($http, Config) {
+angular.module("modules.media.services", [])
+		.factory("mediaService", function ($http, Config) {
 			var services = {};
 
 			//call login API
-			services.loginRequest = function (user) {
-				var postData = {
-					"data": user
-				};
+			services.getMedias = function (option) {
 				return $http({
 					headers: {
-						"Content-Type": "application/json"
+						"Content-Type": "application/json",
+						"X-TOKEN": option.api_access_key
 					},
-					method: "POST",
+					method: "GET",
 					dataType: "json",
-					url: Config.url + "users/login",
-					data: postData
+					url: Config.url + "media/getmedia"
 				}).then(function successCallback(response) {
 					return response;
 				}, function errorCallback(response) {

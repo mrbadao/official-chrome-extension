@@ -61,7 +61,7 @@ config([
 					templateUrl: "app/modules/media/views/media.html",
 					controller: "mediaCtrl"
 				})
-				.otherwise({redirectTo: '/media'});
+				.otherwise({redirectTo: '/home'});
 	}]).
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
