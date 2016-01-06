@@ -2,13 +2,13 @@
  * Created by hieunc on 05/01/2016.
  */
 angular.module('officialChromeApp', [
-	'modules.user.controllers',
-	'modules.user.services',
 	'angular.css.injector',
 	'lib.chrome.services.notifications',
 	'lib.chrome.services.storage',
 	'ngRoute',
-	'ngMessages'
+	'ngMessages',
+	'modules.user.controllers',
+	'modules.media.controllers'
 ], function ($provide) {
 	// Prevent Angular from sniffing for the history API
 	// since it's not supported in packaged apps.
@@ -24,9 +24,14 @@ constant("Config", {
 		"ico_16": "resources/img/app_icon_16.png"
 	},
 	modules: {
-		login: {
+		user: {
 			cssFiles: [
 				"app/modules/user/resources/css/login.css"
+			]
+		},
+		media: {
+			cssFiles: [
+				"app/modules/media/resources/css/media.css"
 			]
 		}
 	}
@@ -50,7 +55,13 @@ config([
 					templateUrl: "app/modules/user/views/login.html",
 					controller: "userCtrl"
 				})
-				.otherwise({redirectTo: '/home'});
+				.when("/media", {
+					title: "Official CMS login",
+					caseInsensitiveMatch: true,
+					templateUrl: "app/modules/media/views/media.html",
+					controller: "mediaCtrl"
+				})
+				.otherwise({redirectTo: '/media'});
 	}]).
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {

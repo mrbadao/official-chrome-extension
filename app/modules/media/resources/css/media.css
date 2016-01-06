@@ -1,0 +1,45 @@
+.no-padding {
+	padding: 0;
+}
+
+.nav-main {
+	min-height: 575px;
+	border-right: solid 2px #ddd;
+}
+
+.nav-main .nav-tabs {
+	border-bottom: 1px solid #eee;
+}
+
+.nav-main .nav-tabs li {
+	display: block;
+	width: 25%;
+}
+
+.nav-main .nav-tabs li.active {
+	margin-bottom: 0;
+}
+
+.nav-main .nav-tabs li a {
+	text-align: center;
+	border-top: 5px solid #fff;
+}
+
+.nav-main .nav-tabs li a:hover{
+	border-top-color: #eeeeee;
+}
+
+.nav-main .nav-tabs li.active a {
+	border: none;
+	border-top: 5px solid #1375cb;
+	border-radius: 0;
+}
+
+.nav-main .nav-tabs li a i {
+	font-size: 25px;
+	color: #555;
+}
+
+.nav-main .nav-tabs li.active a i {
+	color: #1375cb;
+}
