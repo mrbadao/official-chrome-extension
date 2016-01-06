@@ -6,22 +6,22 @@ angular.module("modules.user.services", [])
 			var services = {};
 
 			//call login API
-			services.login = function (user) {
+			services.loginRequest = function (user) {
 				var postData = {
 					"data": user
 				};
-				$http({
+				return $http({
 					headers: {
 						"Content-Type": "application/json"
 					},
 					method: "POST",
 					dataType: "json",
-					url: Config.url + "users/login",
+					url: Config.url + "media/getmedia",
 					data: postData
 				}).then(function successCallback(response) {
-					console.log(response);
+					return response;
 				}, function errorCallback(response) {
-					console.log(response);
+					return response;
 				});
 			};
 

@@ -4,7 +4,9 @@
 angular.module('officialChromeApp', [
 	'modules.user.controllers',
 	'modules.user.services',
-	'ngRoute'
+	'angular.css.injector',
+	'ngRoute',
+	'ngMessages'
 ], function ($provide) {
 	// Prevent Angular from sniffing for the history API
 	// since it's not supported in packaged apps.
@@ -14,24 +16,36 @@ angular.module('officialChromeApp', [
 	});
 }).
 constant("Config", {
-	"url": "http://localhost/api-official/api/"
+	"url": "http://localhost/api-official/api/",
+	modules: {
+		login: {
+			cssFiles: [
+				"app/modules/user/resources/css/login.css"
+			]
+		}
+	}
 }).
-config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-	//$locationProvider.html5Mode(true);
-	//$locationProvider.hashPrefix = '!';
+config([
+	'$routeProvider',
+	'$locationProvider',
+	'$httpProvider',
+	'cssInjectorProvider',
+	function ($routeProvider, $locationProvider, $httpProvider, cssInjectorProvider) {
+		//$locationProvider.html5Mode(true);
+		//$locationProvider.hashPrefix = '!';
+		$httpProvider.defaults.useXDomain = true;
+		delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-	$routeProvider
-			.when("/home", {
-				title: "Official CMS login",
-				extraCss: [
-					"app/modules/user/resources/css/login.css"
-				],
-				caseInsensitiveMatch: true,
-				templateUrl: "app/modules/user/views/login.html",
-				controller: "userCtrl"
-			})
-			.otherwise({redirectTo: '/home'});
-}]).
+		cssInjectorProvider.setSinglePageMode(true);
+		$routeProvider
+				.when("/home", {
+					title: "Official CMS login",
+					caseInsensitiveMatch: true,
+					templateUrl: "app/modules/user/views/login.html",
+					controller: "userCtrl"
+				})
+				.otherwise({redirectTo: '/home'});
+	}]).
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 		//$rootScope.extraCss = current.$$route.extraCss;

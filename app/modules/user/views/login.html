@@ -1,6 +1,16 @@
 <div class="col-sm-12 col-xs-12">
 	<div class="container">
-		<form class="form-signin" ng-submit="loginFormSubmit()" ng-controller="userCtrl">
+		<form class="form-signin" ng-submit="loginFormSubmit()"
+			  name="loginForm"
+			  ng-controller="userCtrl">
+
+			<div ng-messages="loginForm.$error" style="color:maroon" role="alert"
+				 class="col-sm-12 col-xs-12 alert alert-danger">
+				<div ng-message="required">You did not enter a field</div>
+				<div ng-message="minlength">Your field is too short</div>
+				<div ng-message="maxlength">Your field is too long</div>
+			</div>
+
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<label for="inputUsername" class="sr-only">Username</label>
 			<input id="inputUsername"
