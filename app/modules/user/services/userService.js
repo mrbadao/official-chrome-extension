@@ -16,7 +16,7 @@ angular.module("modules.user.services", [])
 					},
 					method: "POST",
 					dataType: "json",
-					url: Config.url + "media/getmedia",
+					url: Config.url + "users/login",
 					data: postData
 				}).then(function successCallback(response) {
 					return response;
