@@ -6,6 +6,36 @@
 	margin: 0;
 }
 
+.btn-add {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	padding: 18px 20px;
+	border-radius: 31px;
+	box-shadow: #ddd;
+	background: #1375cb;
+	opacity: 0.75;
+}
+
+.nav-search {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 48px;
+	padding-top: 6px;
+	border-top: 1px solid #dddddd;
+	background: #eeeeee;
+	padding-right: 6px;
+}
+
+.btn-add i {
+	color: #fff;
+}
+
+.btn-add:hover {
+	opacity: 1;
+}
+
 .nav-main {
 	min-height: 600px;
 	border-right: solid 2px #ddd;
@@ -14,6 +44,7 @@
 
 .nav-main .nav-tabs {
 	border-bottom: 1px solid #eee;
+	box-shadow: 2px 2px 2px #ddd;
 }
 
 .nav-main .nav-tabs li {
@@ -49,17 +80,56 @@
 	color: #1375cb;
 }
 
-.tab-pane .media-item{
-	padding: 7px 5px;
-	height: 90px;
-	border-bottom: solid 1px #eeeeee;
+.tab-pane {
+	padding-bottom: 48px;
+	height: 497px;
+	overflow-y: scroll;
 }
 
-.media-item .item-thumbnail{
-	padding-left: 5px;
-	padding-right: 10px;
+.tab-pane .media-item {
+	padding: 7px 5px 5px;
+	border-bottom: solid 1px #dddddd;
 }
 
-.media-item .item-defail{
+.tab-pane .media-item:hover,
+.tab-pane .media-item.active {
+	background-color: #eeeeee;
+	cursor: pointer;
+}
 
+.media-item .item-thumbnail {
+	padding: 2px;
+	border-radius: 4px;
+	border: 1px solid #eeeeee;
+}
+
+.media-item .item-thumbnail > div {
+	width: 120px;
+	height: 85px;
+	background-size: cover;
+	position: relative;
+}
+
+.media-item .item-defail {
+	padding-left: 8px;
+}
+
+.media-item .item-defail .title {
+	font-size: 16px;
+	margin-bottom: 8px;
+	margin-top: 2px;
+	font-weight: 600;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+.media-item .item-defail p {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.main-content {
+	height: 600px;
 }
