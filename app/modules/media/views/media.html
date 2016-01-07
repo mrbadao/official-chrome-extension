@@ -26,12 +26,12 @@
 
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active">
-					<div class="row no-margin media-item">
+					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
 						<div class="col-xs-4 col-sm-4 item-thumbnail">
-							<img class="img-thumbnail" src="resources/img/noimage.png" alt="">
+							<img class="img-thumbnail" ng-src="{{media.Media.media_thumbnail}}" alt="">
 						</div>
 						<div class="col-xs-8 col-sm-8 item-defail">
-							<h6 class="text-left text-capitalize">kurome</h6>
+							<h6 class="text-left text-capitalize">{{media.Media.media_name}}</h6>
 							<h6 class="text-left text-capitalize">Size:123 kb</h6>
 						</div>
 					</div>

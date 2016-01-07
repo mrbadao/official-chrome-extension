@@ -4,12 +4,12 @@
 angular.module("modules.user.controllers", [
 	'modules.user.services'
 ]).
-controller("userCtrl", function ($scope, $location, Config, cssInjector, userService, chromeStorageSyncService, chromeNotificationService) {
-	//chromeStorageSyncService.get("Auth.User", function (object) {
-	//	if (typeof object != undefined) {
-	//		$location.path("/media");
-	//	}
-	//});
+controller("userCtrl", function ($scope, $location, Config, cssInjector, userService, chromeStorageSyncService) {
+	chromeStorageSyncService.get("Auth", function (object) {
+		if (typeof object.Auth != 'undefined') {
+			$location.path("/media");
+		}
+	});
 
 	// /inject css
 	angular.forEach(Config.modules.user.cssFiles, function (css, idx) {
@@ -29,10 +29,8 @@ controller("userCtrl", function ($scope, $location, Config, cssInjector, userSer
 				$scope.loginResultData = d.data;
 				switch ($scope.loginResultData.status) {
 					case 200:
-						chromeStorageSyncService.remove("Auth.User", null);
-						chromeStorageSyncService.set({"Auth.User": $scope.loginResultData.data}, null);
-						console.log($scope.loginResultData.data);
-						//TODO redirect here
+						chromeStorageSyncService.remove("Auth", null);
+						chromeStorageSyncService.set({"Auth": $scope.loginResultData.data}, null);
 						$location.path("/media");
 						break;
 					default:

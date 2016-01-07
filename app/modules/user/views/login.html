@@ -27,8 +27,10 @@
 					<input name="user[remember]" value="remember-me" type="checkbox"> Remember me
 				</label>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-			<div ng-show="loginForm.$error.loginFailed" role="alert"
+			<button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Login</button>
+			<div ng-show="loginForm.$error.loginFailed "
+				 ng-if="loginForm.submit.$dirty"
+				 role="alert"
 				 class="col-sm-12 col-xs-12 alert alert-danger">
 				<span>{{loginResultData.errors[0]}}</span>
 			</div>
