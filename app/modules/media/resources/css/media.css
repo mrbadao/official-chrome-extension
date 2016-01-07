@@ -2,9 +2,14 @@
 	padding: 0;
 }
 
+.no-margin {
+	margin: 0;
+}
+
 .nav-main {
-	min-height: 575px;
+	min-height: 600px;
 	border-right: solid 2px #ddd;
+	padding: 0;
 }
 
 .nav-main .nav-tabs {
@@ -25,7 +30,7 @@
 	border-top: 5px solid #fff;
 }
 
-.nav-main .nav-tabs li a:hover{
+.nav-main .nav-tabs li a:hover {
 	border-top-color: #eeeeee;
 }
 
@@ -42,4 +47,19 @@
 
 .nav-main .nav-tabs li.active a i {
 	color: #1375cb;
+}
+
+.tab-pane .media-item{
+	padding: 7px 5px;
+	height: 90px;
+	border-bottom: solid 1px #eeeeee;
+}
+
+.media-item .item-thumbnail{
+	padding-left: 5px;
+	padding-right: 10px;
+}
+
+.media-item .item-defail{
+
 }

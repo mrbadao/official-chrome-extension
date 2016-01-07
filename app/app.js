@@ -45,6 +45,7 @@ config([
 		//$locationProvider.html5Mode(true);
 		//$locationProvider.hashPrefix = '!';
 		$httpProvider.defaults.useXDomain = true;
+		$httpProvider
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 		cssInjectorProvider.setSinglePageMode(true);
@@ -61,7 +62,7 @@ config([
 					templateUrl: "app/modules/media/views/media.html",
 					controller: "mediaCtrl"
 				})
-				.otherwise({redirectTo: '/home'});
+				.otherwise({redirectTo: '/media'});
 	}]).
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {

@@ -13,5 +13,8 @@ angular.module("lib.chrome.services.storage", [])
 				return chrome.storage.sync.get(storegeKey, callback);
 			};
 
+			service.remove = function (storegeKey, callback) {
+				return chrome.storage.sync.remove(storegeKey, callback);
+			};
 			return service;
 		});

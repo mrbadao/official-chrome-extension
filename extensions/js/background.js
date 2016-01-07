@@ -5,8 +5,10 @@ function lauch() {
 	chrome.app.window.create('index.html', {
 		'id': 'main',
 		'outerBounds': {
-			'width': 1085,
-			'height': 575
+			'minWidth': 1170,
+			'minHeight': 600,
+			'maxWidth': 1170,
+			'maxHeight': 600
 		},
 		//frame: 'none'
 	});

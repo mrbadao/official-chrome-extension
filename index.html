@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="officialChromeApp">
+<html data-ng-app="officialChromeApp"  data-ng-csp>
 <head>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
 	<script src="node_modules/angular/angular.js"></script>
@@ -9,6 +9,7 @@
 	<script src="app/lib/chrome/services/storage/chromeStorageSyncService.js"></script>
 	<script src="app/lib/chrome/services/notifications/chromeNotificationService.js"></script>
 
+	<script src="extensions/js/loader.js"></script>
 	<script src="app/app.js"></script>
 	<script src="app/modules/user/controllers/userCtrl.js"></script>
 	<script src="app/modules/user/services/userService.js"></script>
