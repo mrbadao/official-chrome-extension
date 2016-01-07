@@ -28,15 +28,79 @@
 				<div role="tabpanel" class="tab-pane active">
 					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
 						<div class="col-xs-4 col-sm-4 item-thumbnail">
-							<img class="img-thumbnail" ng-src="{{media.Media.media_thumbnail}}" alt="">
+							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
 						</div>
 						<div class="col-xs-8 col-sm-8 item-defail">
-							<h6 class="text-left text-capitalize">{{media.Media.media_name}}</h6>
-							<h6 class="text-left text-capitalize">Size:123 kb</h6>
+							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
+
+							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
+
+							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
+
+							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
+						</div>
+					</div>
+					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
+						<div class="col-xs-4 col-sm-4 item-thumbnail">
+							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
+						</div>
+						<div class="col-xs-8 col-sm-8 item-defail">
+							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
+
+							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
+
+							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
+
+							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
+						</div>
+					</div>
+					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
+						<div class="col-xs-4 col-sm-4 item-thumbnail">
+							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
+						</div>
+						<div class="col-xs-8 col-sm-8 item-defail">
+							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
+
+							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
+
+							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
+
+							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
+						</div>
+					</div>
+					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
+						<div class="col-xs-4 col-sm-4 item-thumbnail">
+							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
+						</div>
+						<div class="col-xs-8 col-sm-8 item-defail">
+							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
+
+							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
+
+							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
+
+							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="col-xs-12 col-sm-12 nav-search">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					  </span>
+					<input type="text" class="form-control" placeholder="Search for..."/>
+					  <span class="input-group-btn">
+						<button class="btn btn-success" type="button">
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>
+					  </span>
+				</div>
+			</div>
 		</div>
+
+		<div class="col-xs-8 col-sm-8 main-content"></div>
 	</div>
 </div>

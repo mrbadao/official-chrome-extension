@@ -6,12 +6,11 @@ angular.module("modules.media.controllers", [
 	'modules.media.services'
 ]).
 controller("mediaCtrl", function ($scope, $location, Config, cssInjector, chromeStorageSyncService, mediaService) {
+	var postOption = {};
 	//inject css
 	angular.forEach(Config.modules.media.cssFiles, function (css, idx) {
 		cssInjector.add(css);
 	});
-
-	var postOption = {};
 
 	$scope.mediaData = {};
 	chromeStorageSyncService.get("Auth", function (object) {
@@ -38,7 +37,7 @@ controller("mediaCtrl", function ($scope, $location, Config, cssInjector, chrome
 				} else {
 					console.log(d.status);
 				}
-			},function(d){
+			}, function (d) {
 				console.log(d.status);
 			});
 		} else {
