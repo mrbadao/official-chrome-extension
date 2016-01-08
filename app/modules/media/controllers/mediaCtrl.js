@@ -14,7 +14,6 @@ controller("mediaCtrl", function ($scope, $location, Config, cssInjector, chrome
 
 	$scope.mediaData = {};
 	chromeStorageSyncService.get("Auth", function (object) {
-		console.log(typeof object.Auth != 'undefined');
 		if (typeof object.Auth != 'undefined') {
 			postOption.api_access_key = object.Auth.api_access_key;
 			var promiseGetMediasRequest = mediaService.getMedias(postOption);
