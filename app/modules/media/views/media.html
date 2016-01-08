@@ -101,6 +101,37 @@
 			</div>
 		</div>
 
-		<div class="col-xs-8 col-sm-8 main-content"></div>
+		<div class="col-xs-8 col-sm-8 main-content">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Media</a></li>
+					<li class="active">create</li>
+				</ol>
+			</div>
+
+			<form action="" class="form-horizontal">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Panel title</h3>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label class="control-label col-md-2 col-sm-2" for="name">
+								Tên category <span class="required">*</span>
+							</label>
+
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<input value="1" type="hidden">
+								<input value="" name="category[name]" id="name" class="form-control col-md-7 col-xs-12" type="text">
+								<ul class="parsley-errors-list filled">
+									<li class="parsley-required"></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
