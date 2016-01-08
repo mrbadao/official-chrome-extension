@@ -7,7 +7,14 @@ angular.module("modules.user.controllers", [
 controller("userCtrl", function ($scope, $location, Config, cssInjector, userService, chromeStorageSyncService) {
 	chromeStorageSyncService.get("Auth", function (object) {
 		if (typeof object.Auth != 'undefined') {
-			$location.path("/media");
+			var promiseCheckToken = userService.checkToken(object.Auth.api_access_key);
+			promiseCheckToken.then(function (d) {
+				if (d.data.status == 200 && d.data.data == object.Auth.api_access_key) {
+					$location.path("/media");
+				}
+			}, function (d) {
+				console.log(d);
+			});
 		}
 	});
 
