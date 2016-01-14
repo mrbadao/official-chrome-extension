@@ -43,4 +43,9 @@ controller("mediaCtrl", function ($scope, $location, Config, cssInjector, chrome
 			$location.path("/home");
 		}
 	});
+
+	$scope.media = {};
+	$scope.submitNewMedia = function () {
+		console.log($scope.media);
+	}
 });

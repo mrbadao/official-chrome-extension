@@ -110,7 +110,7 @@
 				</ol>
 			</div>
 
-			<form action="" class="form-horizontal">
+			<form action="" class="form-horizontal" ng-submit="submitNewMedia()">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Panel title</h3>
@@ -122,8 +122,21 @@
 							</label>
 
 							<div class="col-sm-8 col-xs-12">
-								<input value="" name="name" id="name" class="form-control" type="text">
+								<input value="" ng-model='media.name' name="name" id="name" class="form-control" type="text">
 							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3 col-xs-12" for="name">
+								File <span class="required">*</span>
+							</label>
+
+							<div class="col-sm-8 col-xs-12">
+								<input type="file" ng-model='media.file' name="file"/>
+							</div>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary">Upload</button>
+							<button type="reset" class="btn btn-default">Cancel</button>
 						</div>
 					</div>
 				</div>
