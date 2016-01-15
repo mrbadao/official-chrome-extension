@@ -5,6 +5,7 @@ angular.module("modules.user.controllers", [
 	'modules.user.services'
 ]).
 controller("userCtrl", function ($scope, $location, Config, cssInjector, userService, chromeStorageSyncService) {
+
 	chromeStorageSyncService.get("Auth", function (object) {
 		if (typeof object.Auth != 'undefined') {
 			var promiseCheckToken = userService.checkToken(object.Auth.api_access_key);
@@ -21,6 +22,7 @@ controller("userCtrl", function ($scope, $location, Config, cssInjector, userSer
 	// /inject css
 	angular.forEach(Config.modules.user.cssFiles, function (css, idx) {
 		cssInjector.add(css);
+		console.log(css);
 	});
 
 	//model

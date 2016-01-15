@@ -5,12 +5,10 @@ angular.module('officialChromeApp', [
 	'angular.css.injector',
 	'lib.chrome.services.notifications',
 	'lib.chrome.services.storage',
-	'ngRoute',
+	'ui.router',
 	'modules.user.controllers',
 	'modules.media.controllers'
 ], function ($provide) {
-	// Prevent Angular from sniffing for the history API
-	// since it's not supported in packaged apps.
 	$provide.decorator('$window', function ($delegate) {
 		$delegate.history = null;
 		return $delegate;
@@ -36,32 +34,29 @@ constant("Config", {
 	}
 }).
 config([
-	'$routeProvider',
-	'$locationProvider',
+	'$stateProvider',
+	'$urlRouterProvider',
 	'$httpProvider',
 	'cssInjectorProvider',
-	function ($routeProvider, $locationProvider, $httpProvider, cssInjectorProvider) {
-		//$locationProvider.html5Mode(true);
-		//$locationProvider.hashPrefix = '!';
+	function ($stateProvider, $urlRouterProvider, $httpProvider, cssInjectorProvider) {
 		$httpProvider.defaults.useXDomain = true;
-		$httpProvider
 		delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 		cssInjectorProvider.setSinglePageMode(true);
-		$routeProvider
-				.when("/home", {
-					title: "Official CMS login",
-					caseInsensitiveMatch: true,
+
+		$urlRouterProvider.otherwise("/home");
+		$stateProvider
+				.state('home', {
+					url: "/home",
 					templateUrl: "app/modules/user/views/login.html",
 					controller: "userCtrl"
 				})
-				.when("/media", {
-					title: "Official CMS login",
-					caseInsensitiveMatch: true,
+				.state('media', {
+					url: "/media",
 					templateUrl: "app/modules/media/views/media.html",
 					controller: "mediaCtrl"
-				})
-				.otherwise({redirectTo: '/media'});
+				});
+
 	}]).
 run(['$rootScope', function ($rootScope) {
 	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
