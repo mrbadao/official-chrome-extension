@@ -3,9 +3,10 @@
  */
 angular.module("modules.media.controllers", [
 	'lib.chrome.services.storage',
+	'ngFileUpload',
 	'modules.media.services'
 ]).
-controller("mediaCtrl", function ($scope, $location, Config, cssInjector, chromeStorageSyncService, mediaService) {
+controller("mediaCtrl", function ($scope, $location, Upload, $timeout, Config, cssInjector, chromeStorageSyncService, mediaService) {
 	var postOption = {};
 	//inject css
 	angular.forEach(Config.modules.media.cssFiles, function (css, idx) {
@@ -44,7 +45,31 @@ controller("mediaCtrl", function ($scope, $location, Config, cssInjector, chrome
 		}
 	});
 
-	$scope.media = {};
+	$scope.media = {name: '1', description: '1', fileUpload: ''};
+	$scope.uploadFiles = function (file, errFiles) {
+		$scope.media.fileUpload = file;
+		console.log(errFiles);
+		$scope.media.errFile = errFiles && errFiles[0];
+		//if (file) {
+		//	file.upload = Upload.upload({
+		//		url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+		//		data: {file: file}
+		//	});
+		//
+		//	file.upload.then(function (response) {
+		//		$timeout(function () {
+		//			file.result = response.data;
+		//		});
+		//	}, function (response) {
+		//		if (response.status > 0)
+		//			$scope.errorMsg = response.status + ': ' + response.data;
+		//	}, function (evt) {
+		//		file.progress = Math.min(100, parseInt(100.0 *
+		//				evt.loaded / evt.total));
+		//	});
+		//}
+	};
+
 	$scope.submitNewMedia = function () {
 		console.log($scope.media);
 	}

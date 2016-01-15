@@ -40,48 +40,6 @@
 							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
 						</div>
 					</div>
-					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
-						<div class="col-xs-4 col-sm-4 item-thumbnail">
-							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
-						</div>
-						<div class="col-xs-8 col-sm-8 item-defail">
-							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
-
-							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
-
-							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
-
-							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
-						</div>
-					</div>
-					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
-						<div class="col-xs-4 col-sm-4 item-thumbnail">
-							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
-						</div>
-						<div class="col-xs-8 col-sm-8 item-defail">
-							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
-
-							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
-
-							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
-
-							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
-						</div>
-					</div>
-					<div class="row no-margin media-item" ng-repeat="media in mediaData.data">
-						<div class="col-xs-4 col-sm-4 item-thumbnail">
-							<div style="background-image: url({{media.Media.media_thumbnail}})"></div>
-						</div>
-						<div class="col-xs-8 col-sm-8 item-defail">
-							<h6 class="text-left text-capitalize title">{{media.Media.media_name}}</h6>
-
-							<p class="text-left text-capitalize"><strong>Size:</strong> {{media.Media.media_size/1024 | number:2}}Kb</p>
-
-							<p class="text-left text-capitalize"><strong>Dimension:</strong> {{media.Media.media_dimension}}</p>
-
-							<p class="text-left text-capitalize"><strong>Created:</strong> {{media.Media.created}}</p>
-						</div>
-					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 nav-search">
@@ -110,10 +68,10 @@
 				</ol>
 			</div>
 
-			<form action="" class="form-horizontal" ng-submit="submitNewMedia()">
+			<form enctype="multipart/form-data" class="form-horizontal" ng-submit="submitNewMedia()">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
+						<h3 class="panel-title">Upload new media</h3>
 					</div>
 					<div class="panel-body">
 						<div class="form-group">
@@ -122,7 +80,20 @@
 							</label>
 
 							<div class="col-sm-8 col-xs-12">
-								<input value="" ng-model='media.name' name="name" id="name" class="form-control" type="text">
+								<input value=""
+									   ng-model='media.name'
+									   name="name" id="name"
+									   class="form-control"
+									   type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3 col-xs-12" for="name">
+								Description
+							</label>
+
+							<div class="col-sm-8 col-xs-12">
+								<textarea rows="5" name="description" ng-model="media.description" class="form-control textarea-control"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
@@ -131,7 +102,7 @@
 							</label>
 
 							<div class="col-sm-8 col-xs-12">
-								<input type="file" ng-model='media.file' name="file"/>
+								<input type="file" accept="image/*"  ngf-select="uploadFiles($file, $invalidFiles)" name="file"/>
 							</div>
 						</div>
 						<div class="text-center">

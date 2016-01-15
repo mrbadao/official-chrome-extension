@@ -133,3 +133,7 @@
 .main-content {
 	height: 600px;
 }
+
+textarea.textarea-control {
+	resize: vertical;
+}
