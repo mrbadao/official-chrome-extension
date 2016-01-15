@@ -6,7 +6,6 @@ angular.module('officialChromeApp', [
 	'lib.chrome.services.notifications',
 	'lib.chrome.services.storage',
 	'ngRoute',
-	'ngMessages',
 	'modules.user.controllers',
 	'modules.media.controllers'
 ], function ($provide) {
